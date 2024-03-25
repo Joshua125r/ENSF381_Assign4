@@ -1,23 +1,17 @@
+// Homepage.js
 import React from 'react';
-import {Outlet, Link} from 'react-router-dom';
+import Header from './Header';
+import HomeMainSection from './HomeMainSection';
+import Footer from './Footer';
 
 const Homepage = () => {
-    return (
-        <div>
-            <header>
-                <div className = "logo" >
-                    <img src ="my-ecommerce-app\public\images\logo.png" alt = "Logo"/>
-                </div>
-                <div className="company-name">Company Name</div>
-                <nav>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/products">Products</Link></li>
-                        <li><Link to="">Login</Link></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-    );
+  return (
+    <div>
+      <Header />
+      <HomeMainSection />
+      <Footer />
+    </div>
+  );
 };
+
 export default Homepage;
