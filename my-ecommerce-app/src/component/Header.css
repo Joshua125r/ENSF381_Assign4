@@ -1,0 +1,37 @@
+header {
+    padding: 10px 20px;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-logo {
+    width: 50px;
+    text-align: left;
+}
+
+.company-name {
+    text-align: right;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-left: 45%;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+}

@@ -1,14 +1,18 @@
 import React from 'react';
-import {Outlet, Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logo from '../../public/images/logo.png';
+import './Header.css';
 
 const Header = () => {
     return (
         <div>
             <header>
-                <div className = "logo" >
-                    <img src ="my-ecommerce-app\public\images\logo.png" alt = "Logo"/>
+                <div className="header-container">
+                    <div className="logo">
+                        <img src={logo} className="Company-logo" alt="logo" />
+                    </div>
+                    <div className="company-name">Company Name</div>
                 </div>
-                <div className="company-name">Company Name</div>
                 <nav>
                     <ul>
                         <li><Link to="/">Home</Link></li>
