@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import logo from '../../public/images/logo.png';
 import './Header.css';
 
 const Header = () => {
@@ -9,7 +8,7 @@ const Header = () => {
             <header>
                 <div className="header-container">
                     <div className="logo">
-                        <img src="" className="Company-logo" alt="logo" />
+                        <img src="/images/logo.png" className="Company-logo" alt="logo" />
                     </div>
                     <div className="company-name">Company Name</div>
                 </div>
