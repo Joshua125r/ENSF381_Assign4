@@ -4,7 +4,7 @@ export default function CartItem({ item, removeFromCart }) {
   return (
     <div>
       <img src={item.image} alt={item.name} className='product-image'/>
-      <h2>{item.name}</h2>
+      <p>{item.name}</p>
       <p>{item.price}</p>
       <p>Quantity: {item.quantity}</p>
       <p>Total: {item.price * item.quantity}</p>
