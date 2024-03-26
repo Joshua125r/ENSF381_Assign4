@@ -5,12 +5,12 @@ export default function ProductItem({ product, addToCart }) {
 
   return (
     <div>
-      <img src={product.image} alt={product.name} />
-      <h2 onMouseEnter={() => setShowDetails(true)} onMouseLeave={() => setShowDetails(false)}>
+      <img src={product.image} alt={product.name} className='product-image' />
+      <p onMouseEnter={() => setShowDetails(true)} onMouseLeave={() => setShowDetails(false)}>
         {product.name}
-      </h2>
+      </p>
+      <p>${product.price}</p>
       {showDetails && <p>{product.description}</p>}
-      <p>{product.price}</p>
       <button onClick={() => addToCart(product)}>Add to Cart</button>
     </div>
   );
