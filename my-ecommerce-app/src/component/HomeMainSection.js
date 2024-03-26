@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import reviewsData from "../data/reviews";
 
 const HomeMainSection = () => {
@@ -18,13 +19,10 @@ const HomeMainSection = () => {
 	return (
 		<section>
 			<h2>About Us</h2>
-			<p>Company's vision and mission...</p>
-			<button
-				onClick={() => {
-					/* Redirect to Product Page */
-				}}
-			>
-				Shop Now
+			<p>Welcome to our online store! We are passionate about providing high-quality products and exceptional customer service.
+			Learn more about our story and commitment to your satisfaction.</p>
+			<button>
+				<Link to="/products">Shop Now</Link>
 			</button>
 
 			<div className="customer-reviews">
