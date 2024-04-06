@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = ({ handleSwitchToSignup }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 	};
@@ -35,9 +35,7 @@ const LoginForm = () => {
 				<button type="submit">Login</button>
 			</form>
 			<br />
-			<button>
-                <Link to="/signup">Switch to Signup</Link>
-            </button>
+			<button onClick={handleSwitchToSignup}>Switch to Signup</button>
 		</section>
 	);
 };
