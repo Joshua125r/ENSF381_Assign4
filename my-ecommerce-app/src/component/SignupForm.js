@@ -21,8 +21,39 @@ const SignupForm = ({ handleSwitchToLogin }) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
-    } 
+    } else {
+      setError("");
+      // Proceed with signup logic
+      fetch('http://localhost:5000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.message === 'Username already exists') {
+          setError(data.message);
+        } else {
+          console.log(data);
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    }
   };
+  
+  
+  
+  
+
 
   return (
     <section>
