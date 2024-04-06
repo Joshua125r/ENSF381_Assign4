@@ -11,11 +11,15 @@ const LoginPage = () => {
     setShowLoginForm(false);
   };
 
+  const handleSwitchToLogin = () => {
+    setShowLoginForm(true);
+  };
+
   return (
     <div>
       <Header />
       <div>
-        {showLoginForm ? <LoginForm handleSwitchToSignup={handleSwitchToSignup} /> : <SignupForm />}
+        {showLoginForm ? <LoginForm handleSwitchToSignup={handleSwitchToSignup} /> : <SignupForm handleSwitchToLogin={handleSwitchToLogin} />}
       </div>
       <Footer />
     </div>

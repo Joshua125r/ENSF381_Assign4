@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 const SignupForm = ({ handleSwitchToLogin }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     username: "",
     password: "",
     confirmPassword: "",
     email: "",
   });
-  const [error, setError] = useState("");
+  const [error, setError] = React.useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
