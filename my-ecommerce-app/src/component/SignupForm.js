@@ -21,11 +21,7 @@ const SignupForm = ({ handleSwitchToLogin }) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
-    } else {
-      setError("");
-      // Proceed with signup logic
-      console.log("Form submitted");
-    }
+    } 
   };
 
   return (
