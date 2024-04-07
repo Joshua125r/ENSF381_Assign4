@@ -20,7 +20,7 @@ products = [
  "description": "Description for Product 2",
  "price": 20.99,
  "image": 'images/product2.jpg'
- },
+ }, 
  {
  "id": 3,
  "name": "Product 3",

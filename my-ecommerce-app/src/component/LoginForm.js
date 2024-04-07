@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext  } from "./AuthContext";
 
 const LoginForm = ({ handleSwitchToSignup }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
+
+	const { setIsLoggedIn } = useContext(AuthContext)
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -22,6 +26,7 @@ const LoginForm = ({ handleSwitchToSignup }) => {
 				setError(data.message);
 			} else {
 				console.log(data);
+				setIsLoggedIn(true);
 				navigate('/products');  // Redirect to the Product page
 			}
 		})

@@ -1,9 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ProductItem from './ProductItem';
+import { AuthContext } from './AuthContext';
+import { useNavigate } from 'react-router-dom';
+
+
 
 export default function ProductList({ addToCart }) {
-  const [productsData, setProductsData] = useState([]);
+  const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
+  if (!isLoggedIn){
+    navigate('/login');
+  }
+
+  const [productsData, setProductsData] = useState([]);
+  
   useEffect(() => {
     fetch('http://localhost:5000/products')
       .then(response => response.json())
