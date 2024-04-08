@@ -15,6 +15,18 @@ const SignupForm = ({ handleSwitchToLogin }) => {
       ...prevFormData,
       [name]: value,
     }));
+    if (name === 'username') {
+      fetch(`http://localhost:5000/checkUsername/${value}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.usernameExists) {
+            setError('Username already exists');
+          } else {
+            setError('');
+          }
+        })
+        
+    }
   };
 
   const handleSubmit = (e) => {
@@ -38,15 +50,27 @@ const SignupForm = ({ handleSwitchToLogin }) => {
         return response.json();
       })
       .then(data => {
+        
         if (data.message === 'Username already exists') {
           setError(data.message);
         } else {
           console.log(data);
         }
       })
+      .then(response => {
+        if (response.ok){
+          setError("Signup Successful");
+        }
+  
+      })
       .catch((error) => {
         console.error('Error:', error);
-      });
+        setError("Username already exists");
+      }
+    )
+
+
+
     }
   };
   
@@ -107,7 +131,7 @@ const SignupForm = ({ handleSwitchToLogin }) => {
           />
         </label>
         <br />
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error ? error && <p style={{ color: "red" }}>{error}</p> : <p style={{ color: "red" }}>Signup Sucessful</p>}
         <button type="submit">Signup</button>
       </form>
       <button onClick={handleSwitchToLogin}>Switch to Login</button>

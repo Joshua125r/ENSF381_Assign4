@@ -91,6 +91,8 @@ def signup():
 
     user = {'username': username, 'password': password, 'email': email}
 
+    
+
     if any(user['username'] == username for user in users):
         return jsonify({'message': 'Username already exists'}), 400
 
