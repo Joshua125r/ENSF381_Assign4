@@ -53,7 +53,7 @@ const SignupForm = ({ handleSwitchToLogin }) => {
         if (data.message === 'Username already exists') {
           setError(data.message);
         } else {
-          setSignupSuccess(true); // Set signup success status
+          setSignupSuccess(true);
           console.log(data)
         }
       })
