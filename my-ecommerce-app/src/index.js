@@ -1,3 +1,5 @@
+// Assignment completed by: Joshua Kim (30181622) and Aadityasinh Chauhan (30178143)
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
