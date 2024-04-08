@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SignupForm = ({ handleSwitchToLogin }) => {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     username: "",
     password: "",
     confirmPassword: "",
     email: "",
   });
-  const [error, setError] = React.useState("");
+  const [error, setError] = useState("");
+  const [signupSuccess, setSignupSuccess] = useState(false); // New state variable
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,8 +25,7 @@ const SignupForm = ({ handleSwitchToLogin }) => {
           } else {
             setError('');
           }
-        })
-        
+        });
     }
   };
 
@@ -50,34 +50,19 @@ const SignupForm = ({ handleSwitchToLogin }) => {
         return response.json();
       })
       .then(data => {
-        
         if (data.message === 'Username already exists') {
           setError(data.message);
         } else {
-          console.log(data);
+          setSignupSuccess(true); // Set signup success status
+          console.log(data)
         }
-      })
-      .then(response => {
-        if (response.ok){
-          setError("Signup Successful");
-        }
-  
       })
       .catch((error) => {
         console.error('Error:', error);
         setError("Username already exists");
-      }
-    )
-
-
-
+      });
     }
   };
-  
-  
-  
-  
-
 
   return (
     <section>
@@ -131,7 +116,8 @@ const SignupForm = ({ handleSwitchToLogin }) => {
           />
         </label>
         <br />
-        {error ? error && <p style={{ color: "red" }}>{error}</p> : <p style={{ color: "red" }}>Signup Sucessful</p>}
+        {error ? <p style={{ color: "red" }}>{error}</p> : null}
+        {signupSuccess ? <p style={{ color: "red" }}>Signup Successful</p> : null}
         <button type="submit">Signup</button>
       </form>
       <button onClick={handleSwitchToLogin}>Switch to Login</button>
